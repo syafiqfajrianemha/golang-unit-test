@@ -9,6 +9,19 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// running semua sub test : go test -v -run=TestSubTest
+// running hanya satu sub test : go test -v -run=TestSubTest/Syafiq
+func TestSubTest(t *testing.T) {
+	t.Run("Syafiq", func(t *testing.T) {
+		result := HelloWorld("Syafiq")
+		assert.Equal(t, "Hello Syafiq", result, "Result must be 'Hello Syafiq'")
+	})
+	t.Run("Emha", func(t *testing.T) {
+		result := HelloWorld("Emha")
+		assert.Equal(t, "Hello Emha", result, "Result must be 'Hello Emha'")
+	})
+}
+
 func TestMain(m *testing.M) {
 	// before
 	fmt.Println("BEFORE UNIT TEST")
